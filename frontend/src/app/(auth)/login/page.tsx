@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { authService } from "../../../services/auth";
-import { Button } from "../../../components/ui/button";
-import { Input } from "../../../components/ui/input";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "../../../components/ui/card";
+import { authService } from "@/services/auth";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Eye, EyeOff } from "lucide-react";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [loginId, setLoginId] = useState("");
@@ -101,8 +102,14 @@ export default function LoginPage() {
             </Button>
           </form>
         </CardContent>
-        <CardFooter className="flex justify-center border-t pt-4">
+        <CardFooter className="flex flex-col gap-2 justify-center border-t pt-4">
           <p className="text-sm text-muted-foreground text-center">
+            Don't have an Account?{" "}
+            <Link href="/signup" className="text-primary hover:underline font-medium">
+              Sign Up
+            </Link>
+          </p>
+          <p className="text-xs text-muted-foreground text-center">
             Employee accounts are created by HR. <br/>
             Contact Admin if you don't have access.
           </p>
